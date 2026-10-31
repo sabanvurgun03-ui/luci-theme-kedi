@@ -20,7 +20,7 @@ OpenWrt LuCI için mor **Kedi** teması. Koyu, açık ve otomatik (sistem temas�
 
 <p align="center"><img src="docs/gercek-durum.png" alt="Durum sayfası" width="720"></p>
 
-*Gerçek bir AW1000 modemde Durum sayfası (koyu tema). Kimlik bilgileri bulanıklaştırıldı.*
+*Gerçek bir AW1000 modemde Durum sayfası (koyu tema).
 
 <p align="center"><img src="docs/gercek-sistem.png" alt="Sistem sayfası" width="720"></p>
 
