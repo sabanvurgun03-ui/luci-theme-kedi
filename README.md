@@ -18,6 +18,22 @@ OpenWrt LuCI için mor **Kedi** teması. Koyu, açık ve otomatik (sistem temas�
 
 ## Ekran görüntüleri
 
+<p align="center"><img src="docs/gercek-durum.png" alt="Durum sayfası" width="720"></p>
+
+*Gerçek bir AW1000 modemde Durum sayfası (koyu tema). Kimlik bilgileri bulanıklaştırıldı.*
+
+<p align="center"><img src="docs/gercek-sistem.png" alt="Sistem sayfası" width="720"></p>
+
+*Sistem ayarları: sekmeler, form alanları, birincil düğmeler.*
+
+<p align="center"><img src="docs/gercek-ag.png" alt="Ağ arayüzleri" width="720"></p>
+
+*Ağ arayüzleri (MAC ve IP adresleri bulanıklaştırıldı).*
+
+<p align="center"><img src="docs/gercek-guvenlik-duvari.png" alt="Trafik tablosu" width="720"></p>
+
+*Yoğun tablolar da okunaklı: nftables trafik tablosu.*
+
 <p align="center"><img src="docs/onizleme-koyu.png" alt="Koyu tema" width="640"></p>
 
 *Koyu tema (örnek LuCI sayfası: form, uyarı, ilerleme çubuğu, tablo, düğmeler).*
@@ -103,7 +119,7 @@ A purple **Kedi** theme for OpenWrt LuCI. Dark, light and auto (follows your sys
 
 ### Screenshots
 
-See the images above (dark, light, phone, KediRay dashboard). Previews use sample data.
+See the images above: Status, System, Network and traffic-table pages on a real AW1000 router (dark; identifiers blurred), plus dark, light, phone and KediRay previews. Previews use sample data.
 
 ### Requirements
 
