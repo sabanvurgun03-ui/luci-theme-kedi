@@ -28,7 +28,7 @@ OpenWrt LuCI için mor **Kedi** teması. Koyu, açık ve otomatik (sistem temas�
 
 <p align="center"><img src="docs/gercek-ag.png" alt="Ağ arayüzleri" width="720"></p>
 
-*Ağ arayüzleri (MAC ve IP adresleri bulanıklaştırıldı).*
+*Ağ arayüzleri.
 
 <p align="center"><img src="docs/gercek-guvenlik-duvari.png" alt="Trafik tablosu" width="720"></p>
 
