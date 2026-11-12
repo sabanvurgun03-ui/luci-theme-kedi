@@ -60,6 +60,9 @@ fi
 put() { # put <hedef> <kip> ; içerik stdin'den
 	mkdir -p "$(dirname "$1")" && cat > "$1" && chmod "$2" "$1"
 }
+b64d() { # BusyBox'ta base64 uygulaması olmayabilir: openssl'e düş
+	if command -v base64 >/dev/null 2>&1; then base64 -d; elif command -v openssl >/dev/null 2>&1; then openssl base64 -d; else cat >/dev/null; return 1; fi
+}
 ''' % (ver, ver)]
 n = 0
 for src, dst, mode in FILES:
@@ -70,7 +73,7 @@ for src, dst, mode in FILES:
     if src.endswith('.png'):
         b = base64.b64encode(data).decode()
         lines = '\n'.join(b[i:i+76] for i in range(0, len(b), 76))
-        out.append('base64 -d <<\'KT_EOF_%d\' | put "$ROOT%s" %s\n%s\nKT_EOF_%d\n' % (n, dstq, mode, lines, n))
+        out.append('b64d <<\'KT_EOF_%d\' | put "$ROOT%s" %s\n%s\nKT_EOF_%d\n' % (n, dstq, mode, lines, n))
     else:
         t = data.decode()
         assert ('\nKT_EOF_%d\n' % n) not in t

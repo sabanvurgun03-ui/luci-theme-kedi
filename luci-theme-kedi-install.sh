@@ -39,6 +39,9 @@ fi
 put() { # put <hedef> <kip> ; içerik stdin'den
 	mkdir -p "$(dirname "$1")" && cat > "$1" && chmod "$2" "$1"
 }
+b64d() { # BusyBox'ta base64 uygulaması olmayabilir: openssl'e düş
+	if command -v base64 >/dev/null 2>&1; then base64 -d; elif command -v openssl >/dev/null 2>&1; then openssl base64 -d; else cat >/dev/null; return 1; fi
+}
 put "$ROOT/www/luci-static/kedi/cascade.css" 644 <<'KT_EOF_1'
 /*!
  * LuCI Bootstrap Theme
@@ -3339,7 +3342,7 @@ put "$ROOT/www/luci-static/kedi/logo.svg" 644 <<'KT_EOF_4'
   <path fill="#A78BFA" d="M51,69 L57,69 L54,73 Z"/>
 </svg>
 KT_EOF_4
-base64 -d <<'KT_EOF_5' | put "$ROOT/www/luci-static/kedi/logo_48.png" 644
+b64d <<'KT_EOF_5' | put "$ROOT/www/luci-static/kedi/logo_48.png" 644
 iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAC8ElEQVR4nOyazWsTQRjGn91sXLSt
 NdqiFWksVvBU7MUvpE2h0l5VBBHRJsYe/QeUWosePDfnbGtEPQgVP45qUDFBvIhVK6KkpVhtFfph
 k+4mu+PMplkTG6UH4TWwPzLLTHY2vM+8H7MbVonH4wwVjCIOgUBAQgUiFl8pDGKx2Ko9oev6lXA4
