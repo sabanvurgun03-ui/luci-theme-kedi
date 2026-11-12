@@ -1,6 +1,6 @@
 #!/bin/sh
 # ============================================================================
-#  luci-theme-kedi 1.0.4 — OpenWrt LuCI için mor Kedi teması (koyu / açık / otomatik)
+#  luci-theme-kedi 1.0.5 — OpenWrt LuCI için mor Kedi teması (koyu / açık / otomatik)
 #  Bootstrap temasından türetilmiştir (Apache-2.0); Kedi renkleri ve düzeni eklidir.
 #
 #  Kurulum:  sh luci-theme-kedi-install.sh            (temayı kurar ve etkinleştirir)
@@ -8,7 +8,7 @@
 #  Kaldırma: sh luci-theme-kedi-install.sh --remove   (eski temaya döner, dosyaları siler)
 #  Seçim:    Sistem → Görünüm (System → Style) → Tema: Kedi
 # ============================================================================
-KT_VERSION="1.0.4"
+KT_VERSION="1.0.5"
 ROOT="${KT_ROOT:-}"          # yalnızca deneme için: dosyalar bu klasörün altına yazılır
 MODE=install
 for a in "$@"; do case "$a" in --remove) MODE=remove ;; --no-activate) MODE=noact ;; esac; done
@@ -3322,6 +3322,15 @@ html[data-kedi] body fieldset.cbi-section > legend,html[data-kedi] body .cbi-sec
 	font-size:1.15em;font-weight:600;line-height:1.3;white-space:normal;overflow-wrap:anywhere}
 html[data-kedi] body fieldset.cbi-section > legend + *,html[data-kedi] body .cbi-section > legend + *{clear:both}
 html[data-kedi] body .cbi-section > h3,html[data-kedi] body .cbi-section > h2{margin:0 0 10px!important;padding:0!important;white-space:normal;overflow-wrap:anywhere}
+
+/* QModem sekmeleri: <li> içinde <a> yok, yazı doğrudan li'de (cbi-tab = seçili, cbi-tab-disabled = diğerleri) */
+html[data-kedi] body .cbi-tabmenu > li:not(:has(> a)){
+	display:flex;align-items:center;padding:7px 14px!important;line-height:18px;border-radius:999px!important;cursor:pointer;
+	background:var(--k-card)!important;border:1px solid var(--k-line)!important;color:var(--k-soft)!important;
+	font-weight:500;box-shadow:none!important;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
+html[data-kedi] body .cbi-tabmenu > li.cbi-tab-disabled:not(:has(> a)):hover{background:color-mix(in srgb,var(--k-a2) 22%,var(--k-card))!important;border-color:var(--k-line2)!important;color:var(--k-ink)!important}
+html[data-kedi] body .cbi-tabmenu > li.cbi-tab:not(:has(> a)){
+	background:linear-gradient(135deg,var(--k-a1),var(--k-a2))!important;border-color:transparent!important;color:#fff!important;box-shadow:0 4px 14px -6px var(--k-a2)!important}
 KT_EOF_3
 put "$ROOT/www/luci-static/kedi/logo.svg" 644 <<'KT_EOF_4'
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="256" height="256">
@@ -3544,7 +3553,7 @@ put "$ROOT$TPL/kedi/header.ut" 644 <<'KT_EOF_8'
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="darkreader-lock">
 		<link rel="stylesheet" href="{{ media }}/cascade.css">
-		<link rel="stylesheet" href="{{ media }}/kedi.css?v=1.0.4">
+		<link rel="stylesheet" href="{{ media }}/kedi.css?v=1.0.5">
 		<link rel="stylesheet" media="only screen and (max-device-width: 854px)" href="{{ media }}/mobile.css" />
 		<link rel="icon" href="{{ media }}/logo_48.png" sizes="48x48">
 		<link rel="icon" href="{{ media }}/logo.svg" sizes="any">
