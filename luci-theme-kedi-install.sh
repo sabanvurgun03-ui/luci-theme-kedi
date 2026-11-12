@@ -1,6 +1,6 @@
 #!/bin/sh
 # ============================================================================
-#  luci-theme-kedi 1.0.1 — OpenWrt LuCI için mor Kedi teması (koyu / açık / otomatik)
+#  luci-theme-kedi 1.0.2 — OpenWrt LuCI için mor Kedi teması (koyu / açık / otomatik)
 #  Bootstrap temasından türetilmiştir (Apache-2.0); Kedi renkleri ve düzeni eklidir.
 #
 #  Kurulum:  sh luci-theme-kedi-install.sh            (temayı kurar ve etkinleştirir)
@@ -8,7 +8,7 @@
 #  Kaldırma: sh luci-theme-kedi-install.sh --remove   (eski temaya döner, dosyaları siler)
 #  Seçim:    Sistem → Görünüm (System → Style) → Tema: Kedi
 # ============================================================================
-KT_VERSION="1.0.1"
+KT_VERSION="1.0.2"
 ROOT="${KT_ROOT:-}"          # yalnızca deneme için: dosyalar bu klasörün altına yazılır
 MODE=install
 for a in "$@"; do case "$a" in --remove) MODE=remove ;; --no-activate) MODE=noact ;; esac; done
@@ -3547,7 +3547,7 @@ put "$ROOT$TPL/kedi/header.ut" 644 <<'KT_EOF_8'
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="darkreader-lock">
 		<link rel="stylesheet" href="{{ media }}/cascade.css">
-		<link rel="stylesheet" href="{{ media }}/kedi.css">
+		<link rel="stylesheet" href="{{ media }}/kedi.css?v=1.0.2">
 		<link rel="stylesheet" media="only screen and (max-device-width: 854px)" href="{{ media }}/mobile.css" />
 		<link rel="icon" href="{{ media }}/logo_48.png" sizes="48x48">
 		<link rel="icon" href="{{ media }}/logo.svg" sizes="any">

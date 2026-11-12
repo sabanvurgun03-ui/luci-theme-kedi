@@ -75,7 +75,7 @@ for src, dst, mode in FILES:
         lines = '\n'.join(b[i:i+76] for i in range(0, len(b), 76))
         out.append('b64d <<\'KT_EOF_%d\' | put "$ROOT%s" %s\n%s\nKT_EOF_%d\n' % (n, dstq, mode, lines, n))
     else:
-        t = data.decode()
+        t = data.decode().replace('@KTV@', ver)
         assert ('\nKT_EOF_%d\n' % n) not in t
         out.append('put "$ROOT%s" %s <<\'KT_EOF_%d\'\n%s%sKT_EOF_%d\n' % (dstq, mode, n, t, '' if t.endswith('\n') else '\n', n))
 out.append('''
