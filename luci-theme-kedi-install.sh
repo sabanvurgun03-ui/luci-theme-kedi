@@ -1,6 +1,6 @@
 #!/bin/sh
 # ============================================================================
-#  luci-theme-kedi 1.0.0 — OpenWrt LuCI için mor Kedi teması (koyu / açık / otomatik)
+#  luci-theme-kedi 1.0.1 — OpenWrt LuCI için mor Kedi teması (koyu / açık / otomatik)
 #  Bootstrap temasından türetilmiştir (Apache-2.0); Kedi renkleri ve düzeni eklidir.
 #
 #  Kurulum:  sh luci-theme-kedi-install.sh            (temayı kurar ve etkinleştirir)
@@ -8,7 +8,7 @@
 #  Kaldırma: sh luci-theme-kedi-install.sh --remove   (eski temaya döner, dosyaları siler)
 #  Seçim:    Sistem → Görünüm (System → Style) → Tema: Kedi
 # ============================================================================
-KT_VERSION="1.0.0"
+KT_VERSION="1.0.1"
 ROOT="${KT_ROOT:-}"          # yalnızca deneme için: dosyalar bu klasörün altına yazılır
 MODE=install
 for a in "$@"; do case "$a" in --remove) MODE=remove ;; --no-activate) MODE=noact ;; esac; done
@@ -3300,6 +3300,28 @@ html[data-kedi] body header ul .active > a,html[data-kedi] body header .nav .act
 html[data-kedi] body .nav .dropdown-menu{background:var(--k-card)!important;border:1px solid var(--k-line2);border-radius:var(--k-r3);box-shadow:var(--k-shadow)}
 html[data-kedi] body .nav .dropdown-menu a{color:var(--k-ink)!important}
 html[data-kedi] body .nav .dropdown-menu a:hover,html[data-kedi] body .nav .dropdown-menu .active a{background:color-mix(in srgb,var(--k-a2) 22%,transparent)!important}
+
+/* ---------- üst menü: hap (pill) tasarımı ---------- */
+html[data-kedi] body header .nav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 10px 6px 0;float:none}
+html[data-kedi] body header .nav > li{float:none;display:block}
+html[data-kedi] body header .nav > li > a{
+	display:flex;align-items:center;padding:7px 14px;line-height:18px;border-radius:999px;
+	background:var(--k-card);border:1px solid var(--k-line);color:var(--k-soft)!important;
+	font-weight:500;text-shadow:none;transition:background .15s,border-color .15s,color .15s,box-shadow .15s}
+html[data-kedi] body header .nav > li > a:hover,html[data-kedi] body header .nav > li:hover > a{
+	background:color-mix(in srgb,var(--k-a2) 22%,var(--k-card))!important;border-color:var(--k-line2);color:var(--k-ink)!important}
+html[data-kedi] body header .nav > li.active > a,html[data-kedi] body header .nav > li > a.active{
+	background:linear-gradient(135deg,var(--k-a1),var(--k-a2))!important;border-color:transparent;color:#fff!important;
+	box-shadow:0 4px 14px -6px var(--k-a2)}
+html[data-kedi] body header .nav a.menu:after{border-top-color:currentColor;opacity:.7;margin-top:7px}
+html[data-kedi] body .nav .dropdown-menu{top:100%;margin-top:6px;padding:6px;border-width:1px}
+html[data-kedi] body .nav .dropdown-menu li a{padding:7px 12px;border-radius:8px;text-shadow:none;background-image:none}
+html[data-kedi] body header .nav > li:hover > .dropdown-menu{left:0}
+@media (max-width:854px){
+	html[data-kedi] body header .nav{gap:5px;margin:6px 6px 6px 0}
+	html[data-kedi] body header .nav > li > a{padding:5px 11px;font-size:.92em}
+	html[data-kedi] body .nav .dropdown-menu{top:100%}
+}
 KT_EOF_3
 put "$ROOT/www/luci-static/kedi/logo.svg" 644 <<'KT_EOF_4'
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="256" height="256">
